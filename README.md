@@ -21,8 +21,12 @@ Manipulation Module
 
 โครงสร้างโปรเจ็ค
 
+![617-Template Project Slide 60%](https://user-images.githubusercontent.com/64145014/84606455-8ec61c00-aed0-11ea-80f1-c861eaa269eb.jpg)
+
 
 ระบบการทำงาน
+
+![สำเนาของ Basic Flowchart Example (4)](https://user-images.githubusercontent.com/64145014/84606469-a7cecd00-aed0-11ea-9ab5-25b5ecc9bab9.jpg)
 
 
 
