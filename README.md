@@ -7,18 +7,18 @@
 # รายละเอียดโปรเจ็ค
 
 ##Perception Module
-Piezoelectric Sensor
-Button Module
+1.Piezoelectric Sensor
+2.Button Module
 
 
 ##Behavior
-สามารถ ตีจังหวะกลองได้ 5 เสียง
-สามารถแสดงตัวโน๊ตเพื่อการเรียนรู้
-สามารถเปิดเสียงนับจังหวะ เพื่อเพิ่มความเเม่นยังของจังหวะการตีได้
+1.สามารถ ตีจังหวะกลองได้ 5 เสียง
+2.สามารถแสดงตัวโน๊ตเพื่อการเรียนรู้
+3.สามารถเปิดเสียงนับจังหวะ เพื่อเพิ่มความเเม่นยังของจังหวะการตีได้
 
 ##Manipulation Module
-LCD I2C Display
-Active Buzzer
+1.LCD I2C Display
+2.Active Buzzer
 
 โครงสร้างโปรเจ็ค
 
