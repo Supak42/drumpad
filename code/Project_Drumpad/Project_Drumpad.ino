@@ -184,23 +184,4 @@ void piezoElectric(){
     lcd.print("5 (tom1)");
   }
 
-  /*if (pad4 > 100) {
-    Serial.println("HeavyHit"); // Sound 4
-    lcd.setCursor(0, 1);
-    lcd.println("Pad : 4");
-  } else if (pad4 < 100) {
-    Serial.println("LightHit");
-    lcd.setCursor(0, 1);
-    lcd.println("Pad : 4");
-  }
-
-  if (pad5 > 100) {
-    Serial.println("HeavyHit"); // Sound 5
-    lcd.setCursor(0, 1);
-    lcd.println("Pad : 5");
-  } else if (pad5 < 100) {
-    Serial.println("LightHit");
-    lcd.setCursor(0, 1);
-    lcd.println("Pad : 5");
-  }*/
 }
