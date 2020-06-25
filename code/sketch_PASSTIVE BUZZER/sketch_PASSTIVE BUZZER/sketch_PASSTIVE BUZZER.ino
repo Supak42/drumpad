@@ -5,7 +5,7 @@ pinMode(9, OUTPUT);
 }
 
 void loop() {
-beep(255);
+beep(300);
 beep(200);
 beep(200);
 beep(200);
