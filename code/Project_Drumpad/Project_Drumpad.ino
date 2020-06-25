@@ -7,6 +7,8 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 #define KICKTHRESHOLD 20
 #define SNARETHRESHOLD 20
 #define HIHATTHRESHOLD 20
+#define CLM1THRESHOLD 20
+#define TOM1THRESHOLD 20
 const int buttonPin = 2;
 const int Buzzer = 9;
 int buttonState = 0;
@@ -18,18 +20,25 @@ unsigned long kickInterval = 10;
 unsigned long previousKickMillis = 0;
 unsigned long hihatInterval = 10;
 unsigned long previousHihatMillis = 0;
+unsigned long clm1Interval = 10;
+unsigned long previousHihatMillis = 0;
+unsigned long tom1Interval = 10;
+unsigned long previousHihatMillis = 0;
 
 int kickPin = A0;
 int snarePin = A1;
 int hihatPin = A2;
-int pedalPin = 8;
+int clm1lPin = A3;
+int tom1lPin = A4;
 
 int kickValue = 0;
 int snareValue = 0;
 int hihatValue = 0;
 int pedalValue = 0;
+int clm1Value = 0;
+int tom1Value = 0;
 
-boolean pedalPlayed = true;
+
 
 // MAPPING FOR ADDICTIVE DRUMS
 byte KICK = 36;
@@ -62,12 +71,11 @@ byte TOM3_RIMSHOT = 68;
 byte TOM3_HIT = 67;
 byte TOM4_RIMSHOT = 68;
 byte TOM4_HIT = 67;
+byte CYM1_HIT = 55;
 
 void setup() {
   Serial.begin(9600);
   MIDI.begin();
-  pinMode(pedalPin, INPUT);
-  digitalWrite(pedalPin, HIGH);
 
   lcd.init();
   lcd.backlight();
@@ -130,14 +138,15 @@ void piezoElectric(){
   kickValue = analogRead(kickPin);
   snareValue = analogRead(snarePin);
   hihatValue = analogRead(hihatPin);
-  pedalValue = digitalRead(pedalPin);
+  cym1Value = digitalRead(cym1Pin);
+  tom1Value = digitalRead(tom1Pin);
 
   if (kickValue >= KICKTHRESHOLD &&
       noteReady(previousKickMillis, kickInterval)) {
     previousKickMillis = millis();
     hitNote(kickValue, KICK, 5, KICKTHRESHOLD);
     lcd.setCursor(0, 1);
-    lcd.print("Kick");
+    lcd.print("1 (Kick)");
   }
 
   if (snareValue >= SNARETHRESHOLD &&
@@ -145,7 +154,7 @@ void piezoElectric(){
     previousSnareMillis = millis();
     hitNote(snareValue, SNARE_OPEN_HIT, 1, SNARETHRESHOLD);
     lcd.setCursor(0, 1);
-    lcd.print("Snare");
+    lcd.print("2 (Snare)");
   }
 
   if (hihatValue >= HIHATTHRESHOLD &&
@@ -157,7 +166,22 @@ void piezoElectric(){
       hitNote(hihatValue, HIHAT_OPEN_A, 1, HIHATTHRESHOLD);
     }
     lcd.setCursor(0, 1);
-    lcd.print("Hihat");
+    lcd.print("3 (Hihat)");
+  }
+    if (cym1Value >= cym1THRESHOLD &&
+      noteReady(previouscym1Millis, cym1Interval)) {
+    previouscym1Millis = millis();
+    hitNote(cym1Value, cym1_HIT, 1, cym1THRESHOLD);
+    lcd.setCursor(0, 1);
+    lcd.print("4 (CYM1)");
+  }
+
+   if (tom1Value >= tom1THRESHOLD &&
+      noteReady(previoustom1Millis, tom1Interval)) {
+    previoustomMillis = millis();
+    hitNote(tom1Value, tom1_HIT, 1, tom1THRESHOLD);
+    lcd.setCursor(0, 1);
+    lcd.print("5 (tom1)");
   }
 
   /*if (pad4 > 100) {
