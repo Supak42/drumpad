@@ -112,7 +112,7 @@ void loop(){
     lcd.println("Botton : OFF");
   }
   piezoElectric();
-  delay(200)ว
+  delay(200);
   lcd.clear();
 }
 
