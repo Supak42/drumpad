@@ -112,6 +112,7 @@ void loop(){
     lcd.println("Botton : OFF");
   }
   piezoElectric();
+  delay(200)ว
   lcd.clear();
 }
 
@@ -138,8 +139,8 @@ void piezoElectric(){
   kickValue = analogRead(kickPin);
   snareValue = analogRead(snarePin);
   hihatValue = analogRead(hihatPin);
-  cym1Value = digitalRead(cym1Pin);
-  tom1Value = digitalRead(tom1Pin);
+  cym1Value = analogRead(cym1Pin);
+  tom1Value = analogRead(tom1Pin);
 
   if (kickValue >= KICKTHRESHOLD &&
       noteReady(previousKickMillis, kickInterval)) {
